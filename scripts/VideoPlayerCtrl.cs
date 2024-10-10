@@ -11,6 +11,14 @@ public class VideoPlayerCtrl : MonoBehaviour
 
     private bool isMute = false;
     private bool isLoop = true;
+    public bool IsMute
+    {
+        get => isMute;
+    }
+    public bool IsLoop
+    {
+        get => isLoop;
+    }
     private bool isFrist = false;
 
     private void Start()

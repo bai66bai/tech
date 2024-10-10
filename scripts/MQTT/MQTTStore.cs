@@ -7,5 +7,5 @@ public class MQTTStore
 {
     public static MqttFactory mqttFactory;
     public static IMqttClient mqttClient;
-    public static List<string> mqttMsg = new();
+    public static List<MQTTMsg> mqttMsg = new();
 }

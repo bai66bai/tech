@@ -34,6 +34,17 @@ public class MQTT : MonoBehaviour
                .WithTcpServer(IP)
                .Build();
 
+
+        Client.DisconnectedAsync += async (e) =>
+        {
+            MqttClientConnectResult reconnectRet = await Client.ConnectAsync(mqttClientOptions);
+            if (reconnectRet.ResultCode == MqttClientConnectResultCode.Success)
+            {
+                msgHandler.OnDestroy();
+                msgHandler.ReInitHandler();
+            }
+        };
+
         MqttClientConnectResult ret = await Client.ConnectAsync(mqttClientOptions);
         if (ret.ResultCode != MqttClientConnectResultCode.Success)
         {

@@ -31,7 +31,24 @@ public abstract class MQTTMsgHandler : MonoBehaviour
         await Mqtt.Client.SubscribeAsync(subscribeOptions, CancellationToken.None);
     }
 
-    private async void OnDestroy()
+
+    public async void ReInitHandler()
+    {
+        var client = MQTTStore.mqttClient;
+        var factory = MQTTStore.mqttFactory;
+
+        Mqtt.Client.ApplicationMessageReceivedAsync += Cb;
+
+        MqttClientSubscribeOptionsBuilder subscribeOptionsBuilder = factory.CreateSubscribeOptionsBuilder();
+        foreach (var topic in SubscribeList)
+        {
+            subscribeOptionsBuilder = subscribeOptionsBuilder.WithTopicFilter(topic);
+        }
+        MqttClientSubscribeOptions subscribeOptions = subscribeOptionsBuilder.Build();
+        await Mqtt.Client.SubscribeAsync(subscribeOptions, CancellationToken.None);
+    }
+
+    public async void OnDestroy()
     {
         Mqtt.Client.ApplicationMessageReceivedAsync -= Cb;
 
