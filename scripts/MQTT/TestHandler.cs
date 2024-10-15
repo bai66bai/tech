@@ -39,7 +39,7 @@ public class TestHandler : MQTTMsgHandler
                     {
                         case "play":
                             {
-                                videoPlayerCtrl.CtrlVideoStatus();
+                                videoPlayerCtrl.CtrlVideoPlay();
                                 break;
                             }
                         case "pause":
@@ -49,14 +49,27 @@ public class TestHandler : MQTTMsgHandler
                             }
                         case "loop":
                             {
-                                Debug.Log(3);
                                 videoPlayerCtrl.CtrlLoop();
                                 break;
                             }
                         case "mute":
                             {
-                                Debug.Log(4);
                                 videoPlayerCtrl.CtrlMute();
+                                break;
+                            }
+                        case "last":
+                            {
+                                videoPlayerCtrl.ToLastVideo();
+                                break;
+                            }
+                        case "next":
+                            {
+                                videoPlayerCtrl.ToNextVideo();
+                                break;
+                            }
+                        case "head":
+                            {
+                                videoPlayerCtrl.resetVideoTime();
                                 break;
                             }
                     }

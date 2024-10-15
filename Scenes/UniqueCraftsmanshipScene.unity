@@ -510,8 +510,8 @@ GameObject:
   - component: {fileID: 1701914082}
   - component: {fileID: 1701914081}
   - component: {fileID: 1701914083}
-  - component: {fileID: 1701914084}
   - component: {fileID: 1701914085}
+  - component: {fileID: 1701914086}
   m_Layer: 0
   m_Name: VideoPanel
   m_TagString: Untagged
@@ -613,20 +613,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!114 &1701914084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701914079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55fdcab48c08b7448b9ff24f353b47ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VideoPlayer: {fileID: 1701914083}
-  VideoName: uniqueCraftsmanship.mp4
 --- !u!114 &1701914085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +627,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1701914083}
   renderTexture: {fileID: 8400000, guid: a58d4c8c47700224eb33599de41870d0, type: 2}
+  ctrVideoSeries: {fileID: 1701914086}
+--- !u!114 &1701914086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701914079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070651fd026b3134e82cab5876f4a079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FolderName: video
+  videoPlayer: {fileID: 1701914083}
 --- !u!1 &2079204404
 GameObject:
   m_ObjectHideFlags: 0
