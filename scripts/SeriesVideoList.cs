@@ -19,7 +19,7 @@ public class SeriesVideoList : MonoBehaviour
         videoPlayer = GetComponent<VideoPlayer>();
         videoPaths = new List<string>();
         string streamingAssetsPath = Application.streamingAssetsPath; //获取 StreamingAssets 文件夹下的所有视频文件
-        string[] supportedExtensions = { ".mp4", ".mov", ".avi", ".mkv", ".m4v" };
+        string[] supportedExtensions = { ".mp4", ".mov", ".avi", ".mkv", ".m4v" , ".png" , ".jpg" , ".jpeg"};
 
         var files = Directory.GetFiles(streamingAssetsPath + "/" + FolderName);
 

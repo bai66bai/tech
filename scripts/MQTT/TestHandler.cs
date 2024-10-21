@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 public class TestHandler : MQTTMsgHandler
 {
 
-    public VideoPlayerCtrl videoPlayerCtrl;
+    public PlayerChangeCtrl playerChangeCtrl;
 
     public VideoPlayer vp;
     public override Task Cb(MqttApplicationMessageReceivedEventArgs e)
@@ -39,37 +39,37 @@ public class TestHandler : MQTTMsgHandler
                     {
                         case "play":
                             {
-                                videoPlayerCtrl.CtrlVideoPlay();
+                                playerChangeCtrl.Play();
                                 break;
                             }
                         case "pause":
                             {
-                                videoPlayerCtrl.CtrlVideoPause();
+                                playerChangeCtrl.Pause();
                                 break;
                             }
                         case "loop":
                             {
-                                videoPlayerCtrl.CtrlLoop();
+                                playerChangeCtrl.StartLoop();
                                 break;
                             }
                         case "mute":
                             {
-                                videoPlayerCtrl.CtrlMute();
+                                playerChangeCtrl.ChangeMute();
                                 break;
                             }
                         case "last":
                             {
-                                videoPlayerCtrl.ToLastVideo();
+                                playerChangeCtrl.Last();
                                 break;
                             }
                         case "next":
                             {
-                                videoPlayerCtrl.ToNextVideo();
+                                playerChangeCtrl.Next();
                                 break;
                             }
                         case "head":
                             {
-                                videoPlayerCtrl.resetVideoTime();
+                                playerChangeCtrl.ReastVideo();
                                 break;
                             }
                     }
@@ -80,8 +80,8 @@ public class TestHandler : MQTTMsgHandler
             // 构建当前状态mqtt消息
             string msgStr = JsonConvert.SerializeObject(new State()
             {
-                isMute = videoPlayerCtrl.IsMute,
-                isLoop = videoPlayerCtrl.IsLoop,
+                isMute = playerChangeCtrl.IsMute,
+                isLoop = playerChangeCtrl.IsLoop,
                 target = "tech"
             });
             var stateMsg = new MqttApplicationMessageBuilder()
